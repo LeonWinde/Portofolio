@@ -28,12 +28,12 @@ const Header = () => {
     <>
       <div className="headerComponent">
         <img
-          src={imageUrls[currentImageIndex]}
+          src={`/Portofolio${imageUrls[currentImageIndex]}`}
           alt={`Image ${currentImageIndex + 1}`}
           className="header-image"
         />
         <img
-          src={imageUrls[(currentImageIndex + 1) % imageUrls.length]}
+          src={`/Portofolio${imageUrls[(currentImageIndex + 1) % imageUrls.length]}`}
           alt={`Image ${((currentImageIndex + 1) % imageUrls.length) + 1}`}
           className={`header-image ${isAnimating ? "animate" : ""}`}
         />
