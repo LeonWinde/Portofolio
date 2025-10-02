@@ -1,0 +1,53 @@
+@property --mask-pos {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+.headerComponent {
+  display: grid;
+  width: 100%;
+  height: 70vh;
+  position: relative;
+  /* overflow: hidden; */
+
+  .header-image {
+    grid-area: 1 / 1;
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+    object-position: center;
+
+    --size: 40%;
+
+    &:nth-child(2) {
+      mask-image: linear-gradient(
+        90deg,
+        #000 calc(var(--mask-pos) - var(--size)),
+        #0000 calc(var(--mask-pos))
+      );
+    }
+    &:nth-child(2).animate {
+      animation: slide 2s ease-in-out 1 forwards;
+    }
+  }
+  /* img {
+    grid-area: 1 / 1;
+    block-size: 70vh;
+    object-fit: cover;
+    width: 100%;
+  } */
+
+  /* img:nth-child(2) {
+    transition: --mask-pos 0.5s ease;
+  } */
+}
+
+@keyframes slide {
+  0% {
+    --mask-pos: 0%;
+  }
+  100% {
+    --mask-pos: calc(100% + 40%);
+  }
+}
